@@ -13,7 +13,7 @@ router.register(r'orders', OrderViewSet)
 router.register(r'dailydata', DailyDataViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
 
     # path('',products,name='product'),
     # path('register/',register,name='register'),
