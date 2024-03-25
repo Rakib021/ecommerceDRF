@@ -3,7 +3,7 @@ from rest_framework import viewsets
 from .models import User, Product, Cart, CartItem, Order, DailyData
 from .serializers import UserSerializer, ProductSerializer, CartItemSerializer, OrderSerializer, DailyDataSerializer,CartSerializer
 import requests
-from .forms import registerModelForm
+# from .forms import registerModelForm
 
 from rest_framework.decorators import action
 from rest_framework.response import Response
