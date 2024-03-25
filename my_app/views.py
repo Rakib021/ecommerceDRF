@@ -100,22 +100,22 @@ class DailyDataViewSet(viewsets.ModelViewSet):
 
 
 #fetching products from api
-def products(request):
+# def products(request):
 
-    products = requests.get('http://127.0.0.1:8000/api/products/').json()
-    return render(request, 'index.html', {'products': products})
+#     products = requests.get('http://127.0.0.1:8000/api/products/').json()
+#     return render(request, 'index.html', {'products': products})
 
 
 
-def register(request):
-    if request.method == 'POST':
-        form = registerModelForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('product')
-    else:
-        form = registerModelForm()
-    return render(request, 'register.html', {'form': form,'username': request.user.username})
+# def register(request):
+#     if request.method == 'POST':
+#         form = registerModelForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('product')
+#     else:
+#         form = registerModelForm()
+#     return render(request, 'register.html', {'form': form,'username': request.user.username})
 
 
 
