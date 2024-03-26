@@ -3,7 +3,7 @@ from rest_framework import viewsets
 from .models import User, Product, Cart, CartItem, Order, DailyData
 from .serializers import UserSerializer, ProductSerializer, CartItemSerializer, OrderSerializer, DailyDataSerializer,CartSerializer
 import requests
-# from .forms import registerModelForm
+from .forms import registerModelForm
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.db import transaction
@@ -99,22 +99,23 @@ class DailyDataViewSet(viewsets.ModelViewSet):
 
 
 #fetching products from api
-# def products(request):
+def products(request):
+  
+    products = requests.get('https://ecommercedrf-2.onrender.com/api/products/').json()
+    # print(products)
+    return render(request, 'index.html', {'products': products})
 
-#     products = requests.get('https://ecommercedrf-2.onrender.com/api/products/').json()
-#     return render(request, 'index.html', {'products': products})
 
 
-
-# def register(request):
-#     if request.method == 'POST':
-#         form = registerModelForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('product')
-#     else:
-#         form = registerModelForm()
-#     return render(request, 'register.html', {'form': form,'username': request.user.username})
+def register(request):
+    if request.method == 'POST':
+        form = registerModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('product')
+    else:
+        form = registerModelForm()
+    return render(request, 'register.html', {'form': form,'username': request.user.username})
 
 
 
