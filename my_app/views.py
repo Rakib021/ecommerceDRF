@@ -101,8 +101,8 @@ class DailyDataViewSet(viewsets.ModelViewSet):
 #fetching products from api
 def products(request):
   
-    # products = requests.get('https://ecommercedrf-2.onrender.com/api/products/').json()
-    products = requests.get('http://127.0.0.1:8000/api/products/').json()
+    products = requests.get('https://ecommercedrf-2.onrender.com/api/products/').json()
+    # products = requests.get('http://127.0.0.1:8000/api/products/').json()
     # print(products)
     return render(request, 'index.html', {'products': products})
 
